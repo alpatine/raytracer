@@ -14,6 +14,8 @@ class Vector3D:
     def __eq__(self: Self, other: Self) -> bool:
         if isinstance(other, Vector3D):
             return self.x == other.x and self.y == other.y and self.z == other.z
+        else:
+            return False
 
     def __add__(self: Self, other: Self) -> Self:
         if isinstance(other, Vector3D):

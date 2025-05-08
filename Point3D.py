@@ -17,7 +17,7 @@ class Point3D:
         if isinstance(other, Point3D):
             return self.x == other.x and self.y == other.y and self.z == other.z
         else:
-            raise NotImplementedError
+            return False
 
     def __add__(self: Self, other: Self) -> Self:
         if isinstance(other, Vector3D):
