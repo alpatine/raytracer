@@ -25,7 +25,7 @@ class Point3D:
                             self.y + other.y,
                             self.z + other.z)
         else:
-            raise NotImplementedError
+            return NotImplemented
         
     def __sub__(self: Self, other: Self) -> Self:
         if isinstance(other, Point3D):
@@ -37,7 +37,7 @@ class Point3D:
                             self.y - other.y,
                             self.z - other.z)
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def __mul__(self: Self, other: float | int | Self) -> Self | float:
         if isinstance(other, float) or isinstance(other, int):
@@ -46,7 +46,7 @@ class Point3D:
                             self.y * other,
                             self.z * other)
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def __rmul__(self: Self, other: float | int | Self) -> Self:
         if isinstance(other, float) or isinstance(other, int):
@@ -54,4 +54,4 @@ class Point3D:
                             self.y * other,
                             self.z * other)
         else:
-            raise NotImplementedError
+            return NotImplemented

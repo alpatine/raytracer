@@ -23,7 +23,7 @@ class Vector3D:
                             self.y + other.y,
                             self.z + other.z)
         else:
-            raise NotImplementedError
+            return NotImplemented
         
     def __sub__(self: Self, other: Self) -> Self:
         if isinstance(other, Vector3D):
@@ -31,7 +31,7 @@ class Vector3D:
                             self.y - other.y,
                             self.z - other.z)
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def __mul__(self: Self, other: float | int | Self) -> Self | float:
         if isinstance(other, float) or isinstance(other, int):
@@ -43,7 +43,7 @@ class Vector3D:
             # Dot product -> float
             return self.x * other.x + self.y * other.y + self.z * other.z
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def __rmul__(self: Self, other: float | int | Self) -> Self:
         if isinstance(other, float) or isinstance(other, int):
@@ -51,7 +51,7 @@ class Vector3D:
                             self.y * other,
                             self.z * other)
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def __truediv__(self: Self, other: float | int) -> Self:
         if isinstance(other, float) or isinstance(other, int):
@@ -59,7 +59,7 @@ class Vector3D:
                             self.y / other,
                             self.z / other)
         else:
-            raise NotImplementedError
+            return NotImplemented
     
     def len(self: Self) -> float:
         return sqrt(self.x * self.x + self.y * self.y + self.z * self.z)
@@ -74,7 +74,7 @@ class Vector3D:
                             self.z*other.x - self.x*other.z,
                             self.x*other.y - self.y*other.x)
         else:
-            raise NotImplementedError
+            return NotImplemented
 
     def __neg__(self: Self) -> Self:
         return Vector3D(-self.x, -self.y, -self.z)
