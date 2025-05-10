@@ -1,5 +1,5 @@
-import Point
-import Vector
+from Point import Point
+from Vector import Vector
 
 
 class Ray:
