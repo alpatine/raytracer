@@ -1,7 +1,7 @@
 from math import sqrt
 from typing import Self
 
-from Vector3D import Vector3D
+from Vector import Vector
 
 
 class Point:
@@ -20,7 +20,7 @@ class Point:
             return False
 
     def __add__(self: Self, other: Self) -> Self:
-        if isinstance(other, Vector3D):
+        if isinstance(other, Vector):
             return Point(self.x + other.x,
                             self.y + other.y,
                             self.z + other.z)
@@ -29,10 +29,10 @@ class Point:
         
     def __sub__(self: Self, other: Self) -> Self:
         if isinstance(other, Point):
-            return Vector3D(self.x - other.x,
+            return Vector(self.x - other.x,
                             self.y - other.y,
                             self.z - other.z)
-        elif isinstance(other, Vector3D):
+        elif isinstance(other, Vector):
             return Point(self.x - other.x,
                             self.y - other.y,
                             self.z - other.z)

@@ -1,7 +1,7 @@
 from math import sqrt
 from typing import Self
 
-from Vector3D import Vector3D
+from Vector import Vector
 
 
 class Normal:
@@ -27,16 +27,16 @@ class Normal:
             return Normal(self.x + other.x,
                             self.y + other.y,
                             self.z + other.z)
-        elif isinstance(other, Vector3D):
-            return Vector3D(self.x + other.x,
+        elif isinstance(other, Vector):
+            return Vector(self.x + other.x,
                             self.y + other.y,
                             self.z + other.z)
         else:
             return NotImplemented
     
-    def __radd__(self: Self, other: Vector3D) -> Vector3D:
-        if isinstance(other, Vector3D):
-            return Vector3D(self.x + other.x, self.y + other.y, self.z + other.z)
+    def __radd__(self: Self, other: Vector) -> Vector:
+        if isinstance(other, Vector):
+            return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
         else:
             return NotImplemented
     
@@ -46,7 +46,7 @@ class Normal:
             return Normal(self.x * other,
                             self.y * other,
                             self.z * other)
-        elif isinstance(other, Vector3D):
+        elif isinstance(other, Vector):
             # Dot product -> float
             return self.x * other.x + self.y * other.y + self.z * other.z
         else:
@@ -57,7 +57,7 @@ class Normal:
             return Normal(self.x * other,
                             self.y * other,
                             self.z * other)
-        elif isinstance(other, Vector3D):
+        elif isinstance(other, Vector):
             return self.x * other.x + self.y * other.y + self.z * other.z
         else:
             return NotImplemented

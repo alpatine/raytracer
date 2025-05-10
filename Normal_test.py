@@ -2,14 +2,14 @@ from math import sqrt
 from unittest import TestCase
 
 from Normal import Normal
-from Vector3D import Vector3D
+from Vector import Vector
 
 
 class Test_Normal(TestCase):
     def setUp(self):
         self.n = Normal(1, 1, 1)
         self.m = Normal(1.5, -2, 3)
-        self.u = Vector3D(2, 2.5, 2)
+        self.u = Vector(2, 2.5, 2)
         self.a = 5
     
     def test_equality(self):
@@ -24,8 +24,8 @@ class Test_Normal(TestCase):
         self.assertEqual(self.n + self.n, Normal(2, 2, 2))
         self.assertEqual(self.n + self.m, Normal(2.5, -1, 4))
         self.assertEqual(self.m + self.m, Normal(3., -4, 6))
-        self.assertEqual(self.n + self.u, Vector3D(3, 3.5, 3))
-        self.assertEqual(self.u + self.n, Vector3D(3, 3.5, 3))
+        self.assertEqual(self.n + self.u, Vector(3, 3.5, 3))
+        self.assertEqual(self.u + self.n, Vector(3, 3.5, 3))
     
     def test_scaler_mul(self):
         self.assertEqual(int(self.a) * self.n, Normal(5, 5, 5))
@@ -36,8 +36,8 @@ class Test_Normal(TestCase):
     def test_dot(self):
         self.assertEqual(self.n * self.u, 6.5)
         self.assertEqual(self.u * self.n, 6.5)
-        self.assertEqual(Normal(1, 1, 1) * Vector3D(-1, 1, 0), 0)
-        self.assertEqual(Vector3D(1, 1, 1) * Normal(-1, 1, 0), 0)
+        self.assertEqual(Normal(1, 1, 1) * Vector(-1, 1, 0), 0)
+        self.assertEqual(Vector(1, 1, 1) * Normal(-1, 1, 0), 0)
     
     def test_normalise(self):
         x = Normal(2, 2, 2)
