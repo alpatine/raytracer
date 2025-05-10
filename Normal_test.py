@@ -5,7 +5,7 @@ from Normal import Normal
 from Vector3D import Vector3D
 
 
-class Test_Normal3D(TestCase):
+class Test_Normal(TestCase):
     def setUp(self):
         self.n = Normal(1, 1, 1)
         self.m = Normal(1.5, -2, 3)
