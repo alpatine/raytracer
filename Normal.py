@@ -4,7 +4,7 @@ from typing import Self
 from Vector3D import Vector3D
 
 
-class Normal3D:
+class Normal:
     def __init__(self: Self, x: float, y: float, z: float) -> None:
         self.x = x
         self.y = y
@@ -14,17 +14,17 @@ class Normal3D:
         return f'Normal3D({self.x},{self.y},{self.z})'
     
     def __eq__(self: Self, other: Self) -> bool:
-        if isinstance(other, Normal3D):
+        if isinstance(other, Normal):
             return self.x == other.x and self.y == other.y and self.z == other.z
         else:
             return False
 
     def __neg__(self: Self) -> Self:
-        return Normal3D(-self.x, -self.y, -self.z)
+        return Normal(-self.x, -self.y, -self.z)
 
     def __add__(self: Self, other: Self) -> Self:
-        if isinstance(other, Normal3D):
-            return Normal3D(self.x + other.x,
+        if isinstance(other, Normal):
+            return Normal(self.x + other.x,
                             self.y + other.y,
                             self.z + other.z)
         elif isinstance(other, Vector3D):
@@ -43,7 +43,7 @@ class Normal3D:
     def __mul__(self: Self, other: float | int | Self) -> Self | float:
         if isinstance(other, float) or isinstance(other, int):
             # Scalar product -> Normal3D
-            return Normal3D(self.x * other,
+            return Normal(self.x * other,
                             self.y * other,
                             self.z * other)
         elif isinstance(other, Vector3D):
@@ -54,7 +54,7 @@ class Normal3D:
     
     def __rmul__(self: Self, other: float | int | Self) -> Self | int | float:
         if isinstance(other, float) or isinstance(other, int):
-            return Normal3D(self.x * other,
+            return Normal(self.x * other,
                             self.y * other,
                             self.z * other)
         elif isinstance(other, Vector3D):
@@ -70,4 +70,4 @@ class Normal3D:
     
     def hat(self: Self) -> Self:
         length = sqrt(self.x * self.x + self.y * self.y + self.z * self.z)
-        return Normal3D(self.x / length, self.y / length, self.z / length)
+        return Normal(self.x / length, self.y / length, self.z / length)
